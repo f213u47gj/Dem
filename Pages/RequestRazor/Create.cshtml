@@ -2,12 +2,12 @@
 @model TaskRequestDem.Pages.RequestRazor.CreateModel
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Создание заявки";
 }
 
-<h1>Create</h1>
+<h1>Создание</h1>
 
-<h4>Request</h4>
+<h4>Заявка</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -61,14 +61,14 @@
                 <select asp-for="Request.ExecutorId" class ="form-control" asp-items="ViewBag.ExecutorId"></select>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Создать" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-page="Index">Back to List</a>
+    <a asp-page="Index">Назад</a>
 </div>
 
 @section Scripts {

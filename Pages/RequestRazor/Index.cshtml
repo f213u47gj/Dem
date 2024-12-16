@@ -2,13 +2,13 @@
 @model TaskRequestDem.Pages.RequestRazor.IndexModel
 
 @{
-    ViewData["Title"] = "Requests Overview";
+    ViewData["Title"] = "Список заявок";
 }
 
 <h1>Requests Overview</h1>
 
 <p>
-    <a asp-page="Create" class="btn btn-primary">Create New Request</a>
+    <a asp-page="Create" class="btn btn-primary">Создать новую заявку</a>
 </p>
 
 <table class="table table-bordered table-striped">
@@ -21,10 +21,10 @@
             <th>@Html.DisplayNameFor(model => model.Request[0].CreateAt)</th>
             <th>@Html.DisplayNameFor(model => model.Request[0].UpdateAt)</th>
             <th>@Html.DisplayNameFor(model => model.Request[0].FinishAt)</th>
-            <th>Client</th>
-            <th>Status</th>
-            <th>Executor</th>
-            <th>Actions</th>
+            <th>Клиент</th>
+            <th>Статус</th>
+            <th>Отвечтсвенный</th>
+            <th>Действие</th>
         </tr>
     </thead>
     <tbody>
@@ -45,7 +45,7 @@
                     }
                     else
                     {
-                        <span class="text-muted">No client assigned</span>
+                        <span class="text-muted">Нету клиента</span>
                     }
                 </td>
                 <td>
@@ -55,7 +55,7 @@
                     }
                     else
                     {
-                        <span class="text-muted">No status</span>
+                        <span class="text-muted">Нет статуса</span>
                     }
                 </td>
                 <td>
@@ -65,13 +65,13 @@
                     }
                     else
                     {
-                        <span class="text-muted">No executor</span>
+                        <span class="text-muted">Нет ответсвенного</span>
                     }
                 </td>
                 <td>
-                    <a asp-page="./Edit" asp-route-id="@item.RequestId" class="btn btn-warning btn-sm">Edit</a>
-                    <a asp-page="./Details" asp-route-id="@item.RequestId" class="btn btn-info btn-sm">Details</a>
-                    <a asp-page="./Delete" asp-route-id="@item.RequestId" class="btn btn-danger btn-sm">Delete</a>
+                    <a asp-page="./Edit" asp-route-id="@item.RequestId" class="btn btn-warning btn-sm">Ред</a>
+                    <a asp-page="./Details" asp-route-id="@item.RequestId" class="btn btn-info btn-sm">Детали</a>
+                    <a asp-page="./Delete" asp-route-id="@item.RequestId" class="btn btn-danger btn-sm">Удалить</a>
                 </td>
             </tr>
         }
