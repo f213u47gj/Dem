@@ -10,6 +10,10 @@ using TaskRequestDem.Model;
 
 namespace TaskRequestDem.Pages.RequestRazor
 {
+    /// <summary>
+    /// Модель страницы Razor для отображения подробной информации о заявке.
+    /// Загружает данные о заявке из базы данных и отображает их на странице.
+    /// </summary>
     public class DetailsModel : PageModel
     {
         private readonly TaskRequestDem.Data.AppDbContext _context;

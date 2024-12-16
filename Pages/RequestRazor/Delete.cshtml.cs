@@ -10,6 +10,10 @@ using TaskRequestDem.Model;
 
 namespace TaskRequestDem.Pages.RequestRazor
 {
+    /// <summary>
+    /// Модель страницы Razor для удаления заявки.
+    /// Загружает заявку для подтверждения удаления и выполняет удаление заявки из базы данных.
+    /// </summary>
     public class DeleteModel : PageModel
     {
         private readonly TaskRequestDem.Data.AppDbContext _context;

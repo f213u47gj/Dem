@@ -11,6 +11,10 @@ using TaskRequestDem.Model;
 
 namespace TaskRequestDem.Pages.RequestRazor
 {
+    /// <summary>
+    /// Модель страницы Razor для редактирования существующей заявки.
+    /// Позволяет загружать данные заявки для редактирования, а также сохранять изменения в базе данных.
+    /// </summary>
     public class EditModel : PageModel
     {
         private readonly TaskRequestDem.Data.AppDbContext _context;
