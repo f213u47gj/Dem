@@ -1,0 +1,80 @@
+﻿@page
+@model TaskRequestDem.Pages.RequestRazor.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Request</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Request.RequestId" />
+            <div class="form-group">
+                <label asp-for="Request.RequstNumber" class="control-label"></label>
+                <input asp-for="Request.RequstNumber" class="form-control" />
+                <span asp-validation-for="Request.RequstNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Request.Equipment" class="control-label"></label>
+                <input asp-for="Request.Equipment" class="form-control" />
+                <span asp-validation-for="Request.Equipment" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Request.Type" class="control-label"></label>
+                <input asp-for="Request.Type" class="form-control" />
+                <span asp-validation-for="Request.Type" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Request.Description" class="control-label"></label>
+                <input asp-for="Request.Description" class="form-control" />
+                <span asp-validation-for="Request.Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Request.CreateAt" class="control-label"></label>
+                <input asp-for="Request.CreateAt" class="form-control" />
+                <span asp-validation-for="Request.CreateAt" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Request.UpdateAt" class="control-label"></label>
+                <input asp-for="Request.UpdateAt" class="form-control" />
+                <span asp-validation-for="Request.UpdateAt" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Request.FinishAt" class="control-label"></label>
+                <input asp-for="Request.FinishAt" class="form-control" />
+                <span asp-validation-for="Request.FinishAt" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Request.ClientId" class="control-label"></label>
+                <select asp-for="Request.ClientId" class="form-control" asp-items="ViewBag.ClientId"></select>
+                <span asp-validation-for="Request.ClientId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Request.StatusId" class="control-label"></label>
+                <select asp-for="Request.StatusId" class="form-control" asp-items="ViewBag.StatusId"></select>
+                <span asp-validation-for="Request.StatusId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Request.ExecutorId" class="control-label"></label>
+                <select asp-for="Request.ExecutorId" class="form-control" asp-items="ViewBag.ExecutorId"></select>
+                <span asp-validation-for="Request.ExecutorId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

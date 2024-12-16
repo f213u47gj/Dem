@@ -1,0 +1,79 @@
+﻿@page
+@model TaskRequestDem.Pages.RequestRazor.IndexModel
+
+@{
+    ViewData["Title"] = "Requests Overview";
+}
+
+<h1>Requests Overview</h1>
+
+<p>
+    <a asp-page="Create" class="btn btn-primary">Create New Request</a>
+</p>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.Request[0].RequstNumber)</th>
+            <th>@Html.DisplayNameFor(model => model.Request[0].Equipment)</th>
+            <th>@Html.DisplayNameFor(model => model.Request[0].Type)</th>
+            <th>@Html.DisplayNameFor(model => model.Request[0].Description)</th>
+            <th>@Html.DisplayNameFor(model => model.Request[0].CreateAt)</th>
+            <th>@Html.DisplayNameFor(model => model.Request[0].UpdateAt)</th>
+            <th>@Html.DisplayNameFor(model => model.Request[0].FinishAt)</th>
+            <th>Client</th>
+            <th>Status</th>
+            <th>Executor</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Request)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.RequstNumber)</td>
+                <td>@Html.DisplayFor(modelItem => item.Equipment)</td>
+                <td>@Html.DisplayFor(modelItem => item.Type)</td>
+                <td>@Html.DisplayFor(modelItem => item.Description)</td>
+                <td>@Html.DisplayFor(modelItem => item.CreateAt)</td>
+                <td>@Html.DisplayFor(modelItem => item.UpdateAt)</td>
+                <td>@Html.DisplayFor(modelItem => item.FinishAt)</td>
+                <td>
+                    @if (item.client != null)
+                    {
+                        @Html.DisplayFor(modelItem => item.client.FirstName) @Html.DisplayFor(modelItem => item.client.LastName)
+                    }
+                    else
+                    {
+                        <span class="text-muted">No client assigned</span>
+                    }
+                </td>
+                <td>
+                    @if (item.status != null)
+                    {
+                        @Html.DisplayFor(modelItem => item.status.Title)
+                    }
+                    else
+                    {
+                        <span class="text-muted">No status</span>
+                    }
+                </td>
+                <td>
+                    @if (item.executor != null)
+                    {
+                        @Html.DisplayFor(modelItem => item.executor.FirstName) @Html.DisplayFor(modelItem => item.executor.LastName)
+                    }
+                    else
+                    {
+                        <span class="text-muted">No executor</span>
+                    }
+                </td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.RequestId" class="btn btn-warning btn-sm">Edit</a>
+                    <a asp-page="./Details" asp-route-id="@item.RequestId" class="btn btn-info btn-sm">Details</a>
+                    <a asp-page="./Delete" asp-route-id="@item.RequestId" class="btn btn-danger btn-sm">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
