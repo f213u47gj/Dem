@@ -313,4 +313,23 @@ namespace TaskRequestDem.Tests
     }
 }
 
+using Microsoft.EntityFrameworkCore;
+using TaskRequestDem.Data;
+
+namespace Dem.Tests.TestUtilities
+{
+    public static class TestDbContextFactory
+    {
+        public static AppDbContext CreateInMemoryDbContext(string dbName)
+        {
+            var options = new DbContextOptionsBuilder<AppDbContext>()
+                .UseInMemoryDatabase(databaseName: dbName)
+                .Options;
+
+            return new AppDbContext(options);
+        }
+    }
+}
+
+
 
